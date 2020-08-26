@@ -9,6 +9,7 @@ import AddFolder from '../AddFolder/AddFolder'
 import AddNote from '../AddNote/AddNote'
 import ApiContext from '../ApiContext'
 import config from '../config'
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary"
 import './App.css'
 
 class App extends Component {
@@ -131,7 +132,9 @@ class App extends Component {
             <ApiContext.Provider value={value}>
                 <div className='App'>
                     <nav className='App__nav'>
-                        {this.renderNavRoutes()}
+                        <ErrorBoundary >
+                            {this.renderNavRoutes()}
+                        </ErrorBoundary>
                     </nav>
                     <header className='App__header'>
                         <h1>
